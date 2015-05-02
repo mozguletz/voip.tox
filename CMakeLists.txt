@@ -2,8 +2,6 @@ project(voip.tox)
 
 cmake_minimum_required(VERSION 2.6)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
-
 enable_language(CXX)
 
 find_package(kodi REQUIRED)
@@ -14,9 +12,11 @@ include_directories(${kodiplatform_INCLUDE_DIRS}
 
 set(DEPLIBS ${kodiplatform_LIBRARIES})
 
-set(PVRDEMO_SOURCES src/client.cpp
+message(STATUS "DEPLIST: ${DEPLIBS}")
+
+set(VOIPTOX_SOURCES src/client.cpp
                     src/VOIPToxData.cpp)
 
-build_addon(voip.tox VOIPDEMO DEPLIBS)
+build_addon(voip.tox VOIPTOX DEPLIBS)
 
 include(CPack)
