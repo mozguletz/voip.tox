@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="voip.tox"
+  version="0.0.1"
+  name="VOIP Tox Client"
+  provider-name="mozguletz">
+  <requires>
+    <c-pluff version="0.1"/>
+    <import addon="xbmc.voip" version="0.0.1"/>
+  </requires>
+  <extension point="xbmc.pvrclient"
+	library_linux="voip.tox.so"
+	library_osx="voip.tox.dylib"
+	library_freebsd="voip.tox.so"
+	library_windx="voip.tox.dll"
+	library_android="libvoip.tox.so" />
+  <extension point="xbmc.addon.metadata">
+	<summary lang="en">VOIP Tox Client</summary>
+	<description lang="en">VOIP Tox Client</description>
+	<platform>all</platform>
+  </extension>
+</addon>
