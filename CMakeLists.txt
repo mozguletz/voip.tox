@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 2.6)
 
 enable_language(CXX)
 
+find_package(kodi REQUIRED)
 find_package(kodiplatform REQUIRED)
 
 include_directories(${kodiplatform_INCLUDE_DIRS}
