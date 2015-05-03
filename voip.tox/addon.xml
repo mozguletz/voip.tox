@@ -8,7 +8,7 @@
     <c-pluff version="0.1"/>
     <import addon="xbmc.voip" version="0.0.1"/>
   </requires>
-  <extension point="xbmc.pvrclient"
+  <extension point="xbmc.voipclient"
 	library_linux="voip.tox.so"
 	library_osx="voip.tox.dylib"
 	library_freebsd="voip.tox.so"

@@ -45,7 +45,7 @@ std::string g_strUserPath             = "";
 std::string g_strClientPath           = "";
 
 CHelper_libXBMC_addon *XBMC           = NULL;
-CHelper_libXBMC_voip   *VOIP            = NULL;
+CHelper_libXBMC_voip  *VOIP           = NULL;
 
 extern "C" {
 
@@ -61,7 +61,9 @@ ADDON_STATUS ADDON_Create(void* hdl, void* props)
 
   VOIP_PROPERTIES* pvrprops = (VOIP_PROPERTIES*)props;
 
+
   XBMC = new CHelper_libXBMC_addon;
+
   if (!XBMC->RegisterMe(hdl))
   {
     SAFE_DELETE(XBMC);
@@ -123,6 +125,70 @@ void ADDON_FreeSettings()
 
 void ADDON_Announce(const char *flag, const char *sender, const char *message, const void *data)
 {
+}
+
+
+ const char* GetVOIPAPIVersion(void)
+  {
+    static const char *strApiVersion = XBMC_VOIP_API_VERSION;
+    return strApiVersion;
+  }
+
+  const char* GetMininumVOIPAPIVersion(void)
+  {
+    static const char *strMinApiVersion = XBMC_VOIP_MIN_API_VERSION;
+    return strMinApiVersion;
+  }
+
+  const char* GetGUIAPIVersion(void)
+  {
+    static const char *strGuiApiVersion = KODI_GUILIB_API_VERSION;
+    return strGuiApiVersion;
+  }
+
+  const char* GetMininumGUIAPIVersion(void)
+  {
+    static const char *strMinGuiApiVersion = KODI_GUILIB_MIN_API_VERSION;
+    return strMinGuiApiVersion;
+  }
+
+
+VOIP_ERROR GetAddonCapabilities(VOIP_ADDON_CAPABILITIES *pCapabilities)
+{
+  return VOIP_ERROR_NO_ERROR;
+}
+
+const char* GetBackendName(void)
+{
+  static const char* backendName="aur/tox-git";
+  return backendName;
+}
+
+const char* GetBackendVersion(void)
+{
+  static const char* backendVersion="r3350.6a1efc3-1";
+  return backendVersion;
+
+}
+
+VOIP_ERROR CallMenuHook(const VOIP_MENUHOOK& menuhook)
+{
+  return VOIP_ERROR_NOT_IMPLEMENTED;
+}
+
+int GetNumberOfContacts(void)
+{
+  return 0;
+}
+
+VOIP_CONTACT *GetContactById(int)
+{
+  return NULL;
+}
+
+VOIP_ERROR GetContact(VOIP_CONTACT&, int)
+{
+ return VOIP_ERROR_NOT_IMPLEMENTED; 
 }
 
 /***********************************************************

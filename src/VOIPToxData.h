@@ -36,7 +36,7 @@ public:
   
   virtual std::string GetSettingsFile() const;
 protected:
-  virtual bool LoadDemoData(void);
+  
 private:
 
 };
